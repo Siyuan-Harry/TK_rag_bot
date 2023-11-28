@@ -1,7 +1,7 @@
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 import numpy as np
-import openai
+from openai import OpenAI
 import faiss
 import streamlit as st
 
@@ -51,7 +51,7 @@ def decorate_user_question(user_question, retrieved_chunks_for_user):
 def app():
     st.title("💡AI助教")
 
-    openai.api_key = st.secrets["OPENAI_API_KEY"]
+    client = OpenAI(api_key = st.secrets["OPENAI_API_KEY"])
 
     if "openai_model" not in st.session_state:
         st.session_state["openai_model"] = "gpt-4-1106-preview"
@@ -85,7 +85,7 @@ def app():
         with st.chat_message("assistant"):
             message_placeholder = st.empty()
             full_response = ""
-            for response in openai.ChatCompletion.create(
+            for response in client.chat.completions.create(
                 model=st.session_state["openai_model"],
                 messages=[
                     {"role": m["role"], "content": m["content"]}
