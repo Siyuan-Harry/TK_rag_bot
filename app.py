@@ -15,7 +15,7 @@ def searchVDB(search_sentence, paraphrase_embeddings_df, index):
     #从向量数据库中检索相应文段
     #try:
     data = paraphrase_embeddings_df
-    embeddings = data.iloc[:, 1:].values  # All columns except the first (chunk text)
+    embeddings = data.iloc[:, 2:].values  # All columns except the first (chunk text)
     embeddings = np.ascontiguousarray(embeddings, dtype=np.float32)
 
     model = SentenceTransformer('paraphrase-mpnet-base-v2')
