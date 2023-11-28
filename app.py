@@ -24,7 +24,7 @@ def searchVDB(search_sentence, paraphrase_embeddings_df, index):
     # Ensuring the sentence embedding is in the correct format
     sentence_embedding = np.ascontiguousarray(sentence_embedding, dtype=np.float32)
     # Searching for the top 3 nearest neighbors in the FAISS index
-    D, I = index.search(sentence_embedding, k=3)
+    D, I = index.search(sentence_embedding, k=5)
     # Printing the top 3 most similar text chunks
     retrieved_chunks_list = []
     for idx in I[0]:

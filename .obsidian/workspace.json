@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "knowledgeMaterials/1 TK通识.md",
+                "file": "knowledgeMaterials/11 好物分享理论.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "knowledgeMaterials/1 TK通识.md",
+                "file": "knowledgeMaterials/11 好物分享理论.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "knowledgeMaterials/1 TK通识.md",
+                "file": "knowledgeMaterials/11 好物分享理论.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "knowledgeMaterials/1 TK通识.md"
+                "file": "knowledgeMaterials/11 好物分享理论.md"
               }
             }
           }
@@ -173,9 +173,9 @@
   },
   "active": "a86a4be4c9765dab",
   "lastOpenFiles": [
-    "knowledgeMaterials/2 刷机iPhone流程.md",
-    "knowledgeMaterials/1 TK通识.md",
     "knowledgeMaterials/17 运营账号.md",
+    "knowledgeMaterials/1 TK通识.md",
+    "knowledgeMaterials/2 刷机iPhone流程.md",
     "app.py",
     "get_vdb.py",
     "knowledgeMaterials/19 内容运营.md",
