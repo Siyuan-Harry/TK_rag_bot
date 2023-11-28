@@ -76,6 +76,7 @@ def app():
             st.markdown(user_question)
         
         embeddings_df, faiss_index = get_vdb()
+        st.write(embeddings_df)
         retrieved_chunks_for_user = searchVDB(user_question, embeddings_df, faiss_index)
         st.write(retrieved_chunks_for_user)
         prompt = decorate_user_question(user_question, retrieved_chunks_for_user)
