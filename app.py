@@ -99,7 +99,7 @@ def app():
                     full_response += ""
                 message_placeholder.markdown(full_response + "▌")
             message_placeholder.markdown(full_response)
-        st.session_state.messages.append({"role": "assistant", "content": full_response}) #再把新增的完整消息记录增加到session里
+            st.session_state.messages.append({"role": "assistant", "content": full_response}) #再把新增的完整消息记录增加到session里
 
 if __name__ == "__main__":
     app()
