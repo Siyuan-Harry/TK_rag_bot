@@ -42,7 +42,7 @@ def decorate_user_question(user_question, retrieved_chunks_for_user):
     if the given materials are irrelavant to student's question, please use your own knowledge to answer the question.
     You need to break down the student's question first, find out what he really wants to ask, and then try your best to give a comprehensive answer.
     The language you're answering in should aligned with what student is using.
-    Now you're talking to the student. Please answer.
+    Now I'm the student, please answer it for me.
     '''
     return decorated_prompt
 
