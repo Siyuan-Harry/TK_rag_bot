@@ -37,7 +37,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "knowledgeMaterials/17 运营账号.md",
+                "file": "knowledgeMaterials/1 TK通识.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "knowledgeMaterials/17 运营账号.md",
+                "file": "knowledgeMaterials/1 TK通识.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "knowledgeMaterials/17 运营账号.md",
+                "file": "knowledgeMaterials/1 TK通识.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "knowledgeMaterials/17 运营账号.md"
+                "file": "knowledgeMaterials/1 TK通识.md"
               }
             }
           }
@@ -173,11 +173,13 @@
   },
   "active": "a86a4be4c9765dab",
   "lastOpenFiles": [
+    "knowledgeMaterials/2 刷机iPhone流程.md",
+    "knowledgeMaterials/1 TK通识.md",
+    "knowledgeMaterials/17 运营账号.md",
     "app.py",
     "get_vdb.py",
     "knowledgeMaterials/19 内容运营.md",
     "knowledgeMaterials/18 数据分析、数据优化.md",
-    "knowledgeMaterials/17 运营账号.md",
     "knowledgeMaterials/11 好物分享理论.md",
     "knowledgeMaterials/10 剪映基本.md",
     "knowledgeMaterials/9 脚本结构.md",
@@ -186,8 +188,6 @@
     "knowledgeMaterials/6 流量机制 & 账号权重.md",
     "knowledgeMaterials/5 定位 & 人设.md",
     "knowledgeMaterials/3 账号准备.md",
-    "knowledgeMaterials/1 TK通识.md",
-    "knowledgeMaterials/2 刷机iPhone流程.md",
     "knowledgeMaterials/1-TK通识"
   ]
 }

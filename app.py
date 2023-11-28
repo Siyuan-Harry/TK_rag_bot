@@ -68,8 +68,6 @@ def app():
     user_question = st.chat_input("可以询问我关于课程和TK知识的问题...")
 
     if user_question:
-        #更新chatbot的消息记录，把新消息加进来
-        st.session_state.messages.append({"role": "user", "content": prompt})
         #更新ui上显示的聊天记录
         st.session_state.messages_ui.append({"role": "user", "content": user_question})
 
@@ -80,6 +78,9 @@ def app():
         embeddings_df, faiss_index = get_vdb()
         retrieved_chunks_for_user = searchVDB(user_question, embeddings_df, faiss_index)
         prompt = decorate_user_question(user_question, retrieved_chunks_for_user)
+
+        #更新chatbot的消息记录，把新消息加进来
+        st.session_state.messages.append({"role": "user", "content": prompt})
 
         with st.chat_message("assistant"):
             message_placeholder = st.empty()
