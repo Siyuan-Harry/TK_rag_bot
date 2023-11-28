@@ -68,7 +68,7 @@ def app():
     user_question = st.chat_input("可以询问我关于课程和TK知识的问题...")
 
     if user_question:
-        #更新ui上显示的聊天记录
+        #更新ui上显示的聊天记录，
         st.session_state.messages_ui.append({"role": "user", "content": user_question})
 
         #展示新的消息
@@ -77,6 +77,7 @@ def app():
         
         embeddings_df, faiss_index = get_vdb()
         retrieved_chunks_for_user = searchVDB(user_question, embeddings_df, faiss_index)
+        st.write(retrieved_chunks_for_user)
         prompt = decorate_user_question(user_question, retrieved_chunks_for_user)
 
         #更新chatbot的消息记录，把新消息加进来
@@ -99,7 +100,8 @@ def app():
                     full_response += ""
                 message_placeholder.markdown(full_response + "▌")
             message_placeholder.markdown(full_response)
-            st.session_state.messages.append({"role": "assistant", "content": full_response}) #再把新增的完整消息记录增加到session里
+        st.session_state.messages.append({"role": "assistant", "content": full_response}) #再把新增的完整消息记录增加到session里
+        st.session_state.messages_ui.append({"role": "assistant", "content": full_response}) #同样增加到session_ui里
 
 if __name__ == "__main__":
     app()
