@@ -2,8 +2,14 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer
 import numpy as np
 import openai
+import faiss
 import streamlit as st
 
+@st.cache_data
+def get_vdb():
+    embeddings_df = pd.read_csv('paraphrase_embeddings_df.csv')
+    faiss_index = faiss.read_index("faiss_index.idx")
+    return embeddings_df, faiss_index
 
 def searchVDB(search_sentence, paraphrase_embeddings_df, index):
     #从向量数据库中检索相应文段
@@ -70,8 +76,9 @@ def app():
         #展示新的消息
         with st.chat_message("user"):
             st.markdown(user_question)
-
-        retrieved_chunks_for_user = searchVDB(user_question, st.session_state.embeddings_df, st.session_state.faiss_index)
+        
+        embeddings_df, faiss_index = get_vdb()
+        retrieved_chunks_for_user = searchVDB(user_question, embeddings_df, faiss_index)
         prompt = decorate_user_question(user_question, retrieved_chunks_for_user)
 
         with st.chat_message("assistant"):
@@ -89,3 +96,6 @@ def app():
                 message_placeholder.markdown(full_response + "▌")
             message_placeholder.markdown(full_response)
         st.session_state.messages.append({"role": "assistant", "content": full_response}) #再把新增的完整消息记录增加到session里
+
+if __name__ == "__main__":
+    app()
