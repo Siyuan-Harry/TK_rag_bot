@@ -16,7 +16,7 @@ def constructVDB(file_paths):
                 chunks.append(chunk)
     chunk_df = pd.DataFrame(chunks, columns=['chunk'])
     # Convert text chunks to embeddings using the pretrained SentenceTransformer model
-    model = SentenceTransformer('paraphrase-mpnet-base-v2')
+    model = SentenceTransformer('paraphrase-multilingual-mpnet-base-v2')
     embeddings = model.encode(chunk_df['chunk'].tolist())
 
     # Convert embeddings to a dataframe
