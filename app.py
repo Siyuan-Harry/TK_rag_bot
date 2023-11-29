@@ -25,13 +25,13 @@ def searchVDB(search_sentence, paraphrase_embeddings_df, index):
     return retrieved_chunks_list
 
 def decorate_user_question(user_question, retrieved_chunks_for_user):
-    decorated_prompt = f'''You're a brilliant teaching assistant, skilled at answer stundent's question based on given materials.
-    student's question: 「{user_question}」
+    decorated_prompt = f'''You're a brilliant teaching assistant, skilled at answer stundent's question based on given materials. 
+    My question: 「{user_question}」
     related materials:【{retrieved_chunks_for_user}】
-    if the given materials are irrelavant to student's question, please use your own knowledge to answer the question.
-    You need to break down the student's question first, find out what he really wants to ask, and then try your best to give a comprehensive answer.
-    The language you're answering in should aligned with what student is using.
-    Now I'm the student, please answer it for me.
+    if the given materials are irrelavant to my question, please use your own knowledge to answer the question.
+    You need to break down my question first, find out what he really wants to ask, and then try your best to give a comprehensive answer.
+    The language you're answering in should be Chinese.
+    Now please answer.
     '''
     return decorated_prompt
 
