@@ -64,14 +64,15 @@ def app():
     if user_question:
         #更新ui上显示的聊天记录，
         st.session_state.messages_ui.append({"role": "user", "content": user_question})
-
         #展示新的消息
         with st.chat_message("user"):
             st.markdown(user_question)
         
-        retrieved_chunks_for_user = searchVDB(user_question, st.session_state.embeddings_df, st.session_state.faiss_index)
-        st.write(retrieved_chunks_for_user)
-        prompt = decorate_user_question(user_question, retrieved_chunks_for_user)
+        with st.empty():
+            with st.spinner('正在为您从知识库中搜寻答案...'):
+                retrieved_chunks_for_user = searchVDB(user_question, st.session_state.embeddings_df, st.session_state.faiss_index)
+                prompt = decorate_user_question(user_question, retrieved_chunks_for_user)
+            st.success("正在为您从知识库中搜寻答案...完成！")
 
         #更新chatbot的消息记录，把新消息加进来
         st.session_state.messages.append({"role": "user", "content": prompt})
