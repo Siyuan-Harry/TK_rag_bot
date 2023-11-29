@@ -5,18 +5,13 @@ from openai import OpenAI
 import faiss
 import streamlit as st
 
-@st.cache_data
-def get_model():
-    model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
-    return model
-
 def searchVDB(search_sentence, paraphrase_embeddings_df, index):
     #从向量数据库中检索相应文段
     data = paraphrase_embeddings_df
     embeddings = data.iloc[:, 2:].values  # All columns except the first (chunk text)
     embeddings = np.ascontiguousarray(embeddings, dtype=np.float32)
 
-    model = get_model()
+    model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
     sentence_embedding = model.encode([search_sentence])
 
     # Ensuring the sentence embedding is in the correct format
