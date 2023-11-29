@@ -13,8 +13,6 @@ def searchVDB(search_sentence, paraphrase_embeddings_df, index):
 
     model = SentenceTransformer('paraphrase-multilingual-mpnet-base-v2')
     sentence_embedding = model.encode([search_sentence])
-    st.write(search_sentence)
-    st.write(sentence_embedding)
 
     # Ensuring the sentence embedding is in the correct format
     sentence_embedding = np.ascontiguousarray(sentence_embedding, dtype=np.float32)
@@ -74,7 +72,7 @@ def app():
                 prompt = decorate_user_question(user_question, retrieved_chunks_for_user)
             st.success("正在为您从知识库中搜寻答案...完成！")
 
-        #更新chatbot的消息记录，把新消息加进来
+        #更新chatbot的消息记录，把新prompt加进来
         st.session_state.messages.append({"role": "user", "content": prompt})
 
         with st.chat_message("assistant"):
