@@ -18,7 +18,7 @@ def searchVDB(search_sentence, paraphrase_embeddings_df, index):
     embeddings = data.iloc[:, 2:].values  # All columns except the first (chunk text)
     embeddings = np.ascontiguousarray(embeddings, dtype=np.float32)
 
-    model = SentenceTransformer('paraphrase-multilingual-mpnet-base-v2 ')
+    model = SentenceTransformer('paraphrase-multilingual-mpnet-base-v2')
     sentence_embedding = model.encode([search_sentence])
 
     # Ensuring the sentence embedding is in the correct format
