@@ -5,12 +5,6 @@ from openai import OpenAI
 import faiss
 import streamlit as st
 
-@st.cache_data
-def get_vdb():
-    embeddings_df = pd.read_csv('paraphrase_embeddings_df.csv')
-    faiss_index = faiss.read_index("faiss_index.idx")
-    return embeddings_df, faiss_index
-
 def searchVDB(search_sentence, paraphrase_embeddings_df, index):
     #从向量数据库中检索相应文段
     data = paraphrase_embeddings_df
@@ -55,6 +49,10 @@ def app():
         st.session_state.messages_ui = []
     if "messages" not in st.session_state:
         st.session_state.messages = []
+    if "embeddings_df" not in st.session_state:
+        st.session_state.embeddings_df = pd.read_csv('paraphrase_embeddings_df.csv')
+    if "faiss_index" not in st.session_state:
+        st.session_state.faiss_index = faiss.read_index("faiss_index.idx")
 
     #展示messages
     for message in st.session_state.messages_ui:
@@ -71,8 +69,7 @@ def app():
         with st.chat_message("user"):
             st.markdown(user_question)
         
-        embeddings_df, faiss_index = get_vdb()
-        retrieved_chunks_for_user = searchVDB(user_question, embeddings_df, faiss_index)
+        retrieved_chunks_for_user = searchVDB(user_question, st.session_state.embeddings_df, st.session_state.faiss_index)
         st.write(retrieved_chunks_for_user)
         prompt = decorate_user_question(user_question, retrieved_chunks_for_user)
 
