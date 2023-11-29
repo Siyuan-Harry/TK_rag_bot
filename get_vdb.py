@@ -4,6 +4,7 @@ from sentence_transformers import SentenceTransformer
 import numpy as np
 import faiss
 
+
 def chunkstring(string, length):
     return (string[0+i:length+i] for i in range(0, len(string), length))
 
@@ -16,7 +17,7 @@ def constructVDB(file_paths):
                 chunks.append(chunk)
     chunk_df = pd.DataFrame(chunks, columns=['chunk'])
     # Convert text chunks to embeddings using the pretrained SentenceTransformer model
-    model = SentenceTransformer('paraphrase-multilingual-mpnet-base-v2')
+    model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
     embeddings = model.encode(chunk_df['chunk'].tolist())
 
     # Convert embeddings to a dataframe
