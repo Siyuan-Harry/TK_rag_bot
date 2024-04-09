@@ -38,7 +38,7 @@ def decorate_user_question(user_question, retrieved_chunks_for_user):
 
 
 def app():
-    st.title("💡AI助教")
+    st.title("🦉 AI专业客服（TikTok电商运营领域）")
 
     client = OpenAI(api_key = st.secrets["OPENAI_API_KEY"])
 
